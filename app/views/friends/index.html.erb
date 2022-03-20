@@ -1,24 +1,7 @@
-<p style="color: green"><%= notice %></p>
-
 <h1>Friends</h1>
 
-<%
-=begin%>
- <div id="friends">
-  <% @friends.each do |friend| %>
-    <%= render friend %>
-    <p>
-      <%= link_to "Show this friend", friend %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New friend", new_friend_path %> 
-<%
-=end%>
-
 <table class="table table-striped table-bordered table-hover">
-  <thead class="thead-dark">\
+  <thead class="thead-dark">
     <tr>
       <th>First Name</th>
       <th>Last Name</th>
@@ -42,11 +25,11 @@
         </td>
         <td><%= friend.twitter%>
         </td>
-        <td><%= link_to "Show this friend", friend%>
+        <td><%= link_to "Show this friend", friend, class:"btn btn-secondary" %>
         </td>
-        <td><%= link_to "Edit", edit_friend_path(friend)%>
+        <td><%= link_to "Edit", edit_friend_path(friend), class:"btn btn-secondary"%>
         </td>
-        <td><%= link_to "Destroy", friend, method: :delete, data: {confirm:"Are you sure?" } %>
+        <td><%= button_to "Delete", friend, method: :delete, form: {data:{turbo_confirm:"Are you sure?" }}, class:"btn btn-danger" %>
         </td>
       </tr>
     <% end %>
